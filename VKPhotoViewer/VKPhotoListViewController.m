@@ -28,6 +28,7 @@
     self.title = self.album.title;
     [self.tableView registerClass:[VKAlbumViewCell class] forCellReuseIdentifier:@"photoCell"];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"photoCellLoading"];
+    self.tableView.tableFooterView = [[UIView alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     [self vkGetPhotos];
