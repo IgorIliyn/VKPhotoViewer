@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VKAlbum.h"
+#import "VKPhoto.h"
 
 @interface VKParser : NSObject
 

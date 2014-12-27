@@ -73,8 +73,10 @@
 - (NSURL*)getURLForMethod:(vk_request_method)method{
     NSURL *url = nil;
     switch (method) {
-        case VK_PHOTOS_GET:
-            // todo
+        case VK_PHOTOS_GET:{
+            NSString *strUrl = [NSString stringWithFormat:@"%@photos.get%@",vk_api_url,[self getParamString:self.tmpParams]];
+            url = [NSURL URLWithString:strUrl];
+        }
             break;
         case VK_PHOTOS_GETALBUMS:{
             NSString *strUrl = [NSString stringWithFormat:@"%@photos.getAlbums%@",vk_api_url,[self getParamString:self.tmpParams]];

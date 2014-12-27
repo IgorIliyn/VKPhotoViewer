@@ -30,6 +30,7 @@
         [self.contentView addSubview:self.title];
         [self.contentView addSubview:self.vkImageView];
         [self.contentView addSubview:self.loader];
+        self.separatorInset = UIEdgeInsetsMake(0, 55, 0, 0);
     }
     return self;
 }

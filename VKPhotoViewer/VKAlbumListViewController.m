@@ -40,10 +40,12 @@
 }
 
 - (void)vkGetAlbums{
-    VKRequest *vkRequest = [[VKRequest alloc]initWith:self.albumList andRequestMethod:VK_PHOTOS_GETALBUMS andParams:@{@"owner_id":[[UserInfo sharedInstance] vkOwnerId],
-                                                                                                                      @"access_token":[[UserInfo sharedInstance] vkAccessToken],
-                                                                                                                      @"need_covers":@"1",
-                                                                                                                      @"v":@"5.27"}];
+    VKRequest *vkRequest = [[VKRequest alloc]initWith:self.albumList
+                                     andRequestMethod:VK_PHOTOS_GETALBUMS
+                                            andParams:@{@"owner_id":[[UserInfo sharedInstance] vkOwnerId],
+                                                        @"access_token":[[UserInfo sharedInstance] vkAccessToken],
+                                                        @"need_covers":@"1",
+                                                        @"v":@"5.27"}];
     [vkRequest setComplationBlock:^(NSMutableArray *array) {
         if (array) {
             self.albumList = array;
@@ -109,6 +111,7 @@
                     [self startIconDownload:appRecord forIndexPath:indexPath];
                 }
                 // if a download is deferred or in progress, return a placeholder image
+                cell.vkImageView.image = nil;
                 [cell.loader startAnimating];
             }
             else

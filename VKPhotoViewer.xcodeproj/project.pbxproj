@@ -23,6 +23,7 @@
 		21162C021A4C375A0022C332 /* VKAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C011A4C375A0022C332 /* VKAlbum.m */; };
 		21162C051A4C37AF0022C332 /* VKPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C041A4C37AF0022C332 /* VKPhoto.m */; };
 		21162C0A1A4C67940022C332 /* VKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C091A4C67940022C332 /* VKParser.m */; };
+		7896EC7D1A4F561400093D35 /* VKFullscreenPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7896EC7C1A4F561400093D35 /* VKFullscreenPhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		21162C071A4C4E950022C332 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		21162C081A4C67940022C332 /* VKParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKParser.h; sourceTree = "<group>"; };
 		21162C091A4C67940022C332 /* VKParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKParser.m; sourceTree = "<group>"; };
+		7896EC7B1A4F561400093D35 /* VKFullscreenPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFullscreenPhotoViewController.h; sourceTree = "<group>"; };
+		7896EC7C1A4F561400093D35 /* VKFullscreenPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFullscreenPhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +209,8 @@
 				211093B91A4EB67600DCD7FA /* VKAlbumListViewController.m */,
 				211093BD1A4ED75300DCD7FA /* VKPhotoListViewController.h */,
 				211093BE1A4ED75300DCD7FA /* VKPhotoListViewController.m */,
+				7896EC7B1A4F561400093D35 /* VKFullscreenPhotoViewController.h */,
+				7896EC7C1A4F561400093D35 /* VKFullscreenPhotoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				2109B0531A4B160D006D0DD2 /* NSString+CutParameter.m in Sources */,
 				2109B02F1A4B14A5006D0DD2 /* ViewController.m in Sources */,
 				2109B02C1A4B14A5006D0DD2 /* AppDelegate.m in Sources */,
+				7896EC7D1A4F561400093D35 /* VKFullscreenPhotoViewController.m in Sources */,
 				2109B0541A4B160D006D0DD2 /* UserInfo.m in Sources */,
 				21162C021A4C375A0022C332 /* VKAlbum.m in Sources */,
 				211093F71A4EE24E00DCD7FA /* IconDownloader.m in Sources */,
@@ -436,7 +442,7 @@
 		2109B0471A4B14A5006D0DD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -451,7 +457,7 @@
 		2109B0481A4B14A5006D0DD2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;

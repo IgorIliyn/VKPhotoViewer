@@ -36,7 +36,23 @@
     }else{
         switch (vkMethod) {
             case VK_PHOTOS_GET:
-                
+                for (NSDictionary *item in objects[@"response"][@"items"]) {
+                    VKPhoto *photo   = [[VKPhoto alloc]init];
+                    photo.vk_id      = item[@"id"];
+                    photo.album_id   = item[@"album_id"];
+                    photo.owner_id   = item[@"owner_id"];
+                    photo.photo_75   = item[@"photo_75"];
+                    photo.photo_130  = item[@"photo_130"];
+                    photo.photo_604  = item[@"photo_604"];
+                    photo.photo_807  = item[@"photo_807"];
+                    photo.photo_1280 = item[@"photo_1280"];
+                    photo.photo_2560 = item[@"photo_2560"];
+                    photo.width      = item[@"width"];
+                    photo.height     = item[@"height"];
+                    photo.text       = item[@"text"];
+                    photo.date       = item[@"date"];
+                    [rezult addObject:photo];
+                }
                 break;
             case VK_PHOTOS_GETALBUMS:
                 for (NSDictionary *item in objects[@"response"][@"items"]) {

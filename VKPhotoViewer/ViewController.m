@@ -21,7 +21,6 @@
     [super viewDidLoad];
     CGRect frame = [[UIScreen mainScreen]bounds];
     self.vkWebView.frame = frame;
-    
     if ([[UserInfo sharedInstance] vkAccessToken] && [[UserInfo sharedInstance] isValidToken]) {
         [self performSegueWithIdentifier:@"albumList" sender:self];
     } else {
@@ -79,5 +78,15 @@
     
     [self.loader stopAnimating];
 }
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    sleep(1);
+}
+
 
 @end

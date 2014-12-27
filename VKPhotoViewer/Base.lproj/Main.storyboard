@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qdH-bI-A7B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qdH-bI-A7B">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -55,6 +54,35 @@
             </objects>
             <point key="canvasLocation" x="154" y="202"/>
         </scene>
+        <!--Fullscreen Photo View Controller-->
+        <scene sceneID="j0F-Il-jRZ">
+            <objects>
+                <viewController id="5Pd-lp-eS8" customClass="VKFullscreenPhotoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8AY-fH-mPy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="MDA-nE-3GI">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dwy-C0-p27">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZTf-FS-V0h"/>
+                    <connections>
+                        <outlet property="fullscreenImage" destination="dwy-C0-p27" id="nck-Et-Zzz"/>
+                        <outlet property="loader" destination="MDA-nE-3GI" id="KlT-A1-j5i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SAl-IK-62Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1423" y="202"/>
+        </scene>
         <!--Album List View Controller-->
         <scene sceneID="8UB-51-1Ev">
             <objects>
@@ -85,20 +113,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="photoCell" id="AXy-WF-fhY">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AXy-WF-fhY" id="Eih-bC-eK6">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="qts-iV-tlb" id="WSq-JQ-l33"/>
                             <outlet property="delegate" destination="qts-iV-tlb" id="56F-SK-Whe"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="SFR-Sr-ECo"/>
+                    <connections>
+                        <segue destination="5Pd-lp-eS8" kind="push" identifier="fullscreenPhoto" id="ZSH-81-qVE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkt-ty-DHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

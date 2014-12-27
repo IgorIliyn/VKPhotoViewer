@@ -13,6 +13,4 @@
 
 @property (strong, nonatomic) VKAlbum *album;
 
-//- (void)setAlbum:(VKAlbum *)vk_album;
-
 @end
