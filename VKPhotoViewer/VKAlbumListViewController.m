@@ -8,8 +8,11 @@
 
 #import "VKAlbumListViewController.h"
 #import "VKPhotoListViewController.h"
+#import "VKAlbumViewCell.h"
 
-@interface VKAlbumListViewController ()
+@interface VKAlbumListViewController ()<UIScrollViewDelegate>
+
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 
 @property (strong, nonatomic) NSMutableArray *albumList;
 
@@ -21,6 +24,9 @@
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Albums";
+    self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
+    [self.tableView registerClass:[VKAlbumViewCell class] forCellReuseIdentifier:@"albumCell"];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"albumCellLoading"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     [self vkGetAlbums];
@@ -60,21 +66,57 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (!self.albumList) {
-        return 0;
+        return 1;
     }else{
         return self.albumList.count;
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50.f;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"albumCell" forIndexPath:indexPath];
+
+    VKAlbumViewCell *cell = nil;
     
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"albumCell"];
+    NSUInteger nodeCount = self.albumList.count;
+    
+    if (nodeCount == 0 && indexPath.row == 0)
+    {
+        // add a placeholder cell while waiting on table data
+        cell = [tableView dequeueReusableCellWithIdentifier:@"albumCellLoading" forIndexPath:indexPath];
+        
+        cell.textLabel.text = @"Loading…";
     }
-    // Configure the cell...
-    cell.textLabel.text = ((VKAlbum*)[self.albumList objectAtIndex:indexPath.row]).title;
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"albumCell" forIndexPath:indexPath];
+        
+        // Leave cells empty if there's no data yet
+    
+            // Set up the cell representing the app
+            VKAlbum *appRecord = (self.albumList)[indexPath.row];
+            
+            cell.title.text = appRecord.title;
+            
+            // Only load cached images; defer new downloads until scrolling ends
+            if (!appRecord.albumIcon)
+            {
+                if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+                {
+                    [self startIconDownload:appRecord forIndexPath:indexPath];
+                }
+                // if a download is deferred or in progress, return a placeholder image
+                [cell.loader startAnimating];
+            }
+            else
+            {
+                cell.vkImageView.image = appRecord.albumIcon;
+            }
+    }
+    
     
     return cell;
 }
@@ -95,6 +137,84 @@
      VKAlbum *album = [self.albumList objectAtIndex:[self.tableView indexPathForSelectedRow].row];
      [[segue destinationViewController] setAlbum:album];
  }
+
+#pragma mark - Table cell image support
+
+// -------------------------------------------------------------------------------
+//	startIconDownload:forIndexPath:
+// -------------------------------------------------------------------------------
+- (void)startIconDownload:(id)appRecord forIndexPath:(NSIndexPath *)indexPath
+{
+    IconDownloader *iconDownloader = (self.imageDownloadsInProgress)[indexPath];
+    if (iconDownloader == nil)
+    {
+        iconDownloader = [[IconDownloader alloc] init];
+        iconDownloader.appRecord = appRecord;
+        [iconDownloader setCompletionHandler:^{
+            
+            VKAlbumViewCell *cell = (VKAlbumViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+            
+            // Display the newly loaded image
+            
+            [cell vkImageView].image = ((VKAlbum*)appRecord).albumIcon;
+            [cell.loader stopAnimating];
+            // Remove the IconDownloader from the in progress list.
+            // This will result in it being deallocated.
+            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
+            
+        }];
+        (self.imageDownloadsInProgress)[indexPath] = iconDownloader;
+        [iconDownloader startDownload];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	loadImagesForOnscreenRows
+//  This method is used in case the user scrolled into a set of cells that don't
+//  have their app icons yet.
+// -------------------------------------------------------------------------------
+- (void)loadImagesForOnscreenRows
+{
+    if (self.albumList.count > 0)
+    {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            VKAlbum *appRecord = (self.albumList)[indexPath.row];
+            
+            if (!appRecord.albumIcon)
+                // Avoid the app icon download if the app already has an icon
+            {
+                [self startIconDownload:appRecord forIndexPath:indexPath];
+            }
+        }
+    }
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDragging:willDecelerate:
+//  Load images for all onscreen rows when scrolling is finished.
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+    {
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+// -------------------------------------------------------------------------------
+//	scrollViewDidEndDecelerating:scrollView
+//  When scrolling stops, proceed to load the app icons that are on screen.
+// -------------------------------------------------------------------------------
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
+}
+
 
 
 @end

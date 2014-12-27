@@ -18,6 +18,7 @@
 		211093BA1A4EB67600DCD7FA /* VKAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211093B91A4EB67600DCD7FA /* VKAlbumListViewController.m */; };
 		211093BF1A4ED75300DCD7FA /* VKPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211093BE1A4ED75300DCD7FA /* VKPhotoListViewController.m */; };
 		211093F71A4EE24E00DCD7FA /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 211093F61A4EE24E00DCD7FA /* IconDownloader.m */; };
+		211093FB1A4EF25400DCD7FA /* VKAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 211093FA1A4EF25400DCD7FA /* VKAlbumViewCell.m */; };
 		21162BFB1A4C15360022C332 /* VKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162BFA1A4C15360022C332 /* VKRequest.m */; };
 		21162C021A4C375A0022C332 /* VKAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C011A4C375A0022C332 /* VKAlbum.m */; };
 		21162C051A4C37AF0022C332 /* VKPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C041A4C37AF0022C332 /* VKPhoto.m */; };
@@ -57,6 +58,8 @@
 		211093BE1A4ED75300DCD7FA /* VKPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPhotoListViewController.m; sourceTree = "<group>"; };
 		211093F51A4EE24E00DCD7FA /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
 		211093F61A4EE24E00DCD7FA /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
+		211093F91A4EF25400DCD7FA /* VKAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKAlbumViewCell.h; sourceTree = "<group>"; };
+		211093FA1A4EF25400DCD7FA /* VKAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKAlbumViewCell.m; sourceTree = "<group>"; };
 		21162BF91A4C15360022C332 /* VKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKRequest.h; sourceTree = "<group>"; };
 		21162BFA1A4C15360022C332 /* VKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKRequest.m; sourceTree = "<group>"; };
 		21162C001A4C375A0022C332 /* VKAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKAlbum.h; sourceTree = "<group>"; };
@@ -108,6 +111,7 @@
 		2109B0251A4B14A5006D0DD2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				211093F81A4EF23000DCD7FA /* Views */,
 				21162BFF1A4C30BF0022C332 /* Controllers */,
 				21162BFE1A4C16260022C332 /* Classes */,
 				21162BFC1A4C15CA0022C332 /* Categoryes */,
@@ -147,6 +151,15 @@
 				2109B0411A4B14A5006D0DD2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		211093F81A4EF23000DCD7FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				211093F91A4EF25400DCD7FA /* VKAlbumViewCell.h */,
+				211093FA1A4EF25400DCD7FA /* VKAlbumViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		21162BF81A4C13490022C332 /* APIMethods */ = {
@@ -306,6 +319,7 @@
 				211093F71A4EE24E00DCD7FA /* IconDownloader.m in Sources */,
 				2109B0291A4B14A5006D0DD2 /* main.m in Sources */,
 				21162C0A1A4C67940022C332 /* VKParser.m in Sources */,
+				211093FB1A4EF25400DCD7FA /* VKAlbumViewCell.m in Sources */,
 				211093BF1A4ED75300DCD7FA /* VKPhotoListViewController.m in Sources */,
 				211093BA1A4EB67600DCD7FA /* VKAlbumListViewController.m in Sources */,
 			);

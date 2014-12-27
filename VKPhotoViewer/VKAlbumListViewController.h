@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "VKAlbum.h"
 #import "VKRequest.h"
+#import "IconDownloader.h"
 
 @interface VKAlbumListViewController : UITableViewController
 

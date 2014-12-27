@@ -48,11 +48,12 @@
   
  */
 
-@class AppRecord;
+@class VKAlbum;
+@class VKPhoto;
 
 @interface IconDownloader : NSObject
 
-@property (nonatomic, strong) AppRecord *appRecord;
+@property (nonatomic, strong) id appRecord;
 @property (nonatomic, copy) void (^completionHandler)(void);
 
 - (void)startDownload;

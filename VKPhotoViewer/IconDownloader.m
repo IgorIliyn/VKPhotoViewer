@@ -49,7 +49,8 @@
  */
 
 #import "IconDownloader.h"
-#import "AppRecord.h"
+#import "VKAlbum.h"
+#import "VKPhoto.h"
 
 #define kAppIconSize 48
 
@@ -69,8 +70,14 @@
 - (void)startDownload
 {
     self.activeDownload = [NSMutableData data];
+    NSString *url;
+    if ([self.appRecord isKindOfClass:[VKAlbum class]]) {
+        url = ((VKAlbum*)self.appRecord).thumb_src;
+    }else if ([self.appRecord isKindOfClass:[VKPhoto class]]) {
+        url = ((VKPhoto*)self.appRecord).photo_75;
+    }
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.appRecord.imageURLString]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     // alloc+init and start an NSURLConnection; release on completion/failure
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
@@ -125,12 +132,21 @@
 		UIGraphicsBeginImageContextWithOptions(itemSize, NO, 0.0f);
 		CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
 		[image drawInRect:imageRect];
-		self.appRecord.appIcon = UIGraphicsGetImageFromCurrentImageContext();
+        if ([self.appRecord isKindOfClass:[VKAlbum class]]) {
+            ((VKAlbum*)self.appRecord).albumIcon = UIGraphicsGetImageFromCurrentImageContext();
+        }else if ([self.appRecord isKindOfClass:[VKPhoto class]]) {
+            ((VKPhoto*)self.appRecord).photoIcon = UIGraphicsGetImageFromCurrentImageContext();
+        }
 		UIGraphicsEndImageContext();
     }
     else
     {
-        self.appRecord.appIcon = image;
+        if ([self.appRecord isKindOfClass:[VKAlbum class]]) {
+            ((VKAlbum*)self.appRecord).albumIcon = UIGraphicsGetImageFromCurrentImageContext();
+        }else if ([self.appRecord isKindOfClass:[VKPhoto class]]) {
+            ((VKPhoto*)self.appRecord).photoIcon = UIGraphicsGetImageFromCurrentImageContext();
+        }
+
     }
     
     self.activeDownload = nil;
