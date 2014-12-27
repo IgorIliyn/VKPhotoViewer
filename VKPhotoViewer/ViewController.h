@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIWebView *vkWebView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loader;
 
 @end
 

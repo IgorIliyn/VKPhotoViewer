@@ -12,8 +12,16 @@
 		2109B02F1A4B14A5006D0DD2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109B02E1A4B14A5006D0DD2 /* ViewController.m */; };
 		2109B0321A4B14A5006D0DD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2109B0301A4B14A5006D0DD2 /* Main.storyboard */; };
 		2109B0341A4B14A5006D0DD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2109B0331A4B14A5006D0DD2 /* Images.xcassets */; };
-		2109B0371A4B14A5006D0DD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2109B0351A4B14A5006D0DD2 /* LaunchScreen.xib */; };
 		2109B0431A4B14A5006D0DD2 /* VKPhotoViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109B0421A4B14A5006D0DD2 /* VKPhotoViewerTests.m */; };
+		2109B0531A4B160D006D0DD2 /* NSString+CutParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109B04F1A4B160D006D0DD2 /* NSString+CutParameter.m */; };
+		2109B0541A4B160D006D0DD2 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109B0511A4B160D006D0DD2 /* UserInfo.m */; };
+		211093BA1A4EB67600DCD7FA /* VKAlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211093B91A4EB67600DCD7FA /* VKAlbumListViewController.m */; };
+		211093BF1A4ED75300DCD7FA /* VKPhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 211093BE1A4ED75300DCD7FA /* VKPhotoListViewController.m */; };
+		211093F71A4EE24E00DCD7FA /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 211093F61A4EE24E00DCD7FA /* IconDownloader.m */; };
+		21162BFB1A4C15360022C332 /* VKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162BFA1A4C15360022C332 /* VKRequest.m */; };
+		21162C021A4C375A0022C332 /* VKAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C011A4C375A0022C332 /* VKAlbum.m */; };
+		21162C051A4C37AF0022C332 /* VKPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C041A4C37AF0022C332 /* VKPhoto.m */; };
+		21162C0A1A4C67940022C332 /* VKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C091A4C67940022C332 /* VKParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +44,29 @@
 		2109B02E1A4B14A5006D0DD2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2109B0311A4B14A5006D0DD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2109B0331A4B14A5006D0DD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2109B0361A4B14A5006D0DD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2109B03C1A4B14A5006D0DD2 /* VKPhotoViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VKPhotoViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2109B0411A4B14A5006D0DD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2109B0421A4B14A5006D0DD2 /* VKPhotoViewerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VKPhotoViewerTests.m; sourceTree = "<group>"; };
+		2109B04E1A4B160D006D0DD2 /* NSString+CutParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CutParameter.h"; sourceTree = "<group>"; };
+		2109B04F1A4B160D006D0DD2 /* NSString+CutParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CutParameter.m"; sourceTree = "<group>"; };
+		2109B0501A4B160D006D0DD2 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		2109B0511A4B160D006D0DD2 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		211093B81A4EB67600DCD7FA /* VKAlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKAlbumListViewController.h; sourceTree = "<group>"; };
+		211093B91A4EB67600DCD7FA /* VKAlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKAlbumListViewController.m; sourceTree = "<group>"; };
+		211093BD1A4ED75300DCD7FA /* VKPhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPhotoListViewController.h; sourceTree = "<group>"; };
+		211093BE1A4ED75300DCD7FA /* VKPhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPhotoListViewController.m; sourceTree = "<group>"; };
+		211093F51A4EE24E00DCD7FA /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconDownloader.h; sourceTree = "<group>"; };
+		211093F61A4EE24E00DCD7FA /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconDownloader.m; sourceTree = "<group>"; };
+		21162BF91A4C15360022C332 /* VKRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKRequest.h; sourceTree = "<group>"; };
+		21162BFA1A4C15360022C332 /* VKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKRequest.m; sourceTree = "<group>"; };
+		21162C001A4C375A0022C332 /* VKAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKAlbum.h; sourceTree = "<group>"; };
+		21162C011A4C375A0022C332 /* VKAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKAlbum.m; sourceTree = "<group>"; };
+		21162C031A4C37AF0022C332 /* VKPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKPhoto.h; sourceTree = "<group>"; };
+		21162C041A4C37AF0022C332 /* VKPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKPhoto.m; sourceTree = "<group>"; };
+		21162C061A4C4DC80022C332 /* PrefixHeader_VKPhotoViewer.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader_VKPhotoViewer.pch; path = ../PrefixHeader_VKPhotoViewer.pch; sourceTree = "<group>"; };
+		21162C071A4C4E950022C332 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		21162C081A4C67940022C332 /* VKParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKParser.h; sourceTree = "<group>"; };
+		21162C091A4C67940022C332 /* VKParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +108,14 @@
 		2109B0251A4B14A5006D0DD2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				21162BFF1A4C30BF0022C332 /* Controllers */,
+				21162BFE1A4C16260022C332 /* Classes */,
+				21162BFC1A4C15CA0022C332 /* Categoryes */,
+				21162BF81A4C13490022C332 /* APIMethods */,
 				2109B02A1A4B14A5006D0DD2 /* AppDelegate.h */,
 				2109B02B1A4B14A5006D0DD2 /* AppDelegate.m */,
-				2109B02D1A4B14A5006D0DD2 /* ViewController.h */,
-				2109B02E1A4B14A5006D0DD2 /* ViewController.m */,
 				2109B0301A4B14A5006D0DD2 /* Main.storyboard */,
 				2109B0331A4B14A5006D0DD2 /* Images.xcassets */,
-				2109B0351A4B14A5006D0DD2 /* LaunchScreen.xib */,
 				2109B0261A4B14A5006D0DD2 /* Supporting Files */,
 			);
 			path = VKPhotoViewer;
@@ -96,8 +124,10 @@
 		2109B0261A4B14A5006D0DD2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				21162C061A4C4DC80022C332 /* PrefixHeader_VKPhotoViewer.pch */,
 				2109B0271A4B14A5006D0DD2 /* Info.plist */,
 				2109B0281A4B14A5006D0DD2 /* main.m */,
+				21162C071A4C4E950022C332 /* Global.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +147,54 @@
 				2109B0411A4B14A5006D0DD2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		21162BF81A4C13490022C332 /* APIMethods */ = {
+			isa = PBXGroup;
+			children = (
+				21162BF91A4C15360022C332 /* VKRequest.h */,
+				21162BFA1A4C15360022C332 /* VKRequest.m */,
+			);
+			name = APIMethods;
+			sourceTree = "<group>";
+		};
+		21162BFC1A4C15CA0022C332 /* Categoryes */ = {
+			isa = PBXGroup;
+			children = (
+				2109B04E1A4B160D006D0DD2 /* NSString+CutParameter.h */,
+				2109B04F1A4B160D006D0DD2 /* NSString+CutParameter.m */,
+			);
+			name = Categoryes;
+			sourceTree = "<group>";
+		};
+		21162BFE1A4C16260022C332 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2109B0501A4B160D006D0DD2 /* UserInfo.h */,
+				2109B0511A4B160D006D0DD2 /* UserInfo.m */,
+				21162C001A4C375A0022C332 /* VKAlbum.h */,
+				21162C011A4C375A0022C332 /* VKAlbum.m */,
+				21162C031A4C37AF0022C332 /* VKPhoto.h */,
+				21162C041A4C37AF0022C332 /* VKPhoto.m */,
+				21162C081A4C67940022C332 /* VKParser.h */,
+				21162C091A4C67940022C332 /* VKParser.m */,
+				211093F51A4EE24E00DCD7FA /* IconDownloader.h */,
+				211093F61A4EE24E00DCD7FA /* IconDownloader.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		21162BFF1A4C30BF0022C332 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2109B02D1A4B14A5006D0DD2 /* ViewController.h */,
+				2109B02E1A4B14A5006D0DD2 /* ViewController.m */,
+				211093B81A4EB67600DCD7FA /* VKAlbumListViewController.h */,
+				211093B91A4EB67600DCD7FA /* VKAlbumListViewController.m */,
+				211093BD1A4ED75300DCD7FA /* VKPhotoListViewController.h */,
+				211093BE1A4ED75300DCD7FA /* VKPhotoListViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2109B0321A4B14A5006D0DD2 /* Main.storyboard in Resources */,
-				2109B0371A4B14A5006D0DD2 /* LaunchScreen.xib in Resources */,
 				2109B0341A4B14A5006D0DD2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21162C051A4C37AF0022C332 /* VKPhoto.m in Sources */,
+				21162BFB1A4C15360022C332 /* VKRequest.m in Sources */,
+				2109B0531A4B160D006D0DD2 /* NSString+CutParameter.m in Sources */,
 				2109B02F1A4B14A5006D0DD2 /* ViewController.m in Sources */,
 				2109B02C1A4B14A5006D0DD2 /* AppDelegate.m in Sources */,
+				2109B0541A4B160D006D0DD2 /* UserInfo.m in Sources */,
+				21162C021A4C375A0022C332 /* VKAlbum.m in Sources */,
+				211093F71A4EE24E00DCD7FA /* IconDownloader.m in Sources */,
 				2109B0291A4B14A5006D0DD2 /* main.m in Sources */,
+				21162C0A1A4C67940022C332 /* VKParser.m in Sources */,
+				211093BF1A4ED75300DCD7FA /* VKPhotoListViewController.m in Sources */,
+				211093BA1A4EB67600DCD7FA /* VKAlbumListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,14 +338,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		2109B0351A4B14A5006D0DD2 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2109B0361A4B14A5006D0DD2 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -286,6 +364,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -326,6 +405,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -343,7 +423,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader_VKPhotoViewer.pch";
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,7 +438,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader_VKPhotoViewer.pch";
 				INFOPLIST_FILE = VKPhotoViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +502,7 @@
 				2109B0481A4B14A5006D0DD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2109B0491A4B14A5006D0DD2 /* Build configuration list for PBXNativeTarget "VKPhotoViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +511,7 @@
 				2109B04B1A4B14A5006D0DD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

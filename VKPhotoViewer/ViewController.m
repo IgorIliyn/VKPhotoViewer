@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "UserInfo.h"
+#import "NSString+CutParameter.h"
 
 @interface ViewController ()
 
@@ -15,13 +17,67 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    CGRect frame = [[UIScreen mainScreen]bounds];
+    self.vkWebView.frame = frame;
+    
+    if ([[UserInfo sharedInstance] vkAccessToken] && [[UserInfo sharedInstance] isValidToken]) {
+        [self performSegueWithIdentifier:@"albumList" sender:self];
+    } else {
+        NSString *url = [NSString stringWithFormat:@"%@?scope=%@&revoke=%@&response_type=%@&redirect_uri=%@&client_id=%@&display=%@",vk_authorize_url,
+                         vk_scope,
+                         vk_revoke,
+                         vk_response_type,
+                         vk_redirect_uri,
+                         vk_client_id,
+                         vk_display];
+        
+        [self.vkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    }
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    
+    
+    return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    self.vkWebView.hidden = YES;
+    [self.loader startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    NSLog(@"%@",webView.request.URL.absoluteString);
+    NSString *checkUrl = webView.request.URL.absoluteString;
+    NSArray *values = [checkUrl componentsSeparatedByString:@"#"];
+    if (values && [[values objectAtIndex:0] isEqualToString:vk_redirect_uri]) {
+        self.vkWebView.hidden = YES;
+        
+        NSString *ownerId   = [checkUrl getParameter:@"user_id=" fromString:checkUrl];
+        NSString *token     = [checkUrl getParameter:@"access_token=" fromString:checkUrl];
+        NSString *tokenDate = [NSString getGMTFormateDate:[NSDate date]];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:ownerId forKey:VKOwnerIdKey];
+        [[NSUserDefaults standardUserDefaults] setObject:token forKey:VKAccessTokenKey];
+        [[NSUserDefaults standardUserDefaults] setObject:tokenDate forKey:VKAccessTokenDateKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [self performSegueWithIdentifier:@"albumList" sender:self];
+        
+    }else{
+        self.vkWebView.hidden = NO;
+    }
+    [self.loader stopAnimating];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    
+    [self.loader stopAnimating];
 }
 
 @end
