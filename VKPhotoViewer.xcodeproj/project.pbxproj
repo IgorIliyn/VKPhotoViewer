@@ -23,6 +23,10 @@
 		21162C021A4C375A0022C332 /* VKAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C011A4C375A0022C332 /* VKAlbum.m */; };
 		21162C051A4C37AF0022C332 /* VKPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C041A4C37AF0022C332 /* VKPhoto.m */; };
 		21162C0A1A4C67940022C332 /* VKParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 21162C091A4C67940022C332 /* VKParser.m */; };
+		7886458F1A544E0B00DE2A0F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7886458E1A544E0B00DE2A0F /* Reachability.m */; };
+		788645911A544E4B00DE2A0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 788645901A544E4B00DE2A0F /* SystemConfiguration.framework */; };
+		788645951A54504A00DE2A0F /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 788645941A54504A00DE2A0F /* ReachabilityManager.m */; };
+		788867941A5021AF00A35EE5 /* Vk.png in Resources */ = {isa = PBXBuildFile; fileRef = 788867931A5021AF00A35EE5 /* Vk.png */; };
 		7896EC7D1A4F561400093D35 /* VKFullscreenPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7896EC7C1A4F561400093D35 /* VKFullscreenPhotoViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +75,12 @@
 		21162C071A4C4E950022C332 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		21162C081A4C67940022C332 /* VKParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKParser.h; sourceTree = "<group>"; };
 		21162C091A4C67940022C332 /* VKParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKParser.m; sourceTree = "<group>"; };
+		7886458D1A544E0B00DE2A0F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		7886458E1A544E0B00DE2A0F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		788645901A544E4B00DE2A0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		788645931A54504A00DE2A0F /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
+		788645941A54504A00DE2A0F /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
+		788867931A5021AF00A35EE5 /* Vk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vk.png; sourceTree = "<group>"; };
 		7896EC7B1A4F561400093D35 /* VKFullscreenPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKFullscreenPhotoViewController.h; sourceTree = "<group>"; };
 		7896EC7C1A4F561400093D35 /* VKFullscreenPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKFullscreenPhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				788645911A544E4B00DE2A0F /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +107,7 @@
 		2109B01A1A4B14A5006D0DD2 = {
 			isa = PBXGroup;
 			children = (
+				788645921A544E5600DE2A0F /* Frameworks */,
 				2109B0251A4B14A5006D0DD2 /* VKPhotoViewer */,
 				2109B03F1A4B14A5006D0DD2 /* VKPhotoViewerTests */,
 				2109B0241A4B14A5006D0DD2 /* Products */,
@@ -114,6 +126,7 @@
 		2109B0251A4B14A5006D0DD2 /* VKPhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
+				788867921A50219900A35EE5 /* Images */,
 				211093F81A4EF23000DCD7FA /* Views */,
 				21162BFF1A4C30BF0022C332 /* Controllers */,
 				21162BFE1A4C16260022C332 /* Classes */,
@@ -196,6 +209,10 @@
 				21162C091A4C67940022C332 /* VKParser.m */,
 				211093F51A4EE24E00DCD7FA /* IconDownloader.h */,
 				211093F61A4EE24E00DCD7FA /* IconDownloader.m */,
+				7886458D1A544E0B00DE2A0F /* Reachability.h */,
+				7886458E1A544E0B00DE2A0F /* Reachability.m */,
+				788645931A54504A00DE2A0F /* ReachabilityManager.h */,
+				788645941A54504A00DE2A0F /* ReachabilityManager.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -213,6 +230,22 @@
 				7896EC7C1A4F561400093D35 /* VKFullscreenPhotoViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		788645921A544E5600DE2A0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				788645901A544E4B00DE2A0F /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		788867921A50219900A35EE5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				788867931A5021AF00A35EE5 /* Vk.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2109B0321A4B14A5006D0DD2 /* Main.storyboard in Resources */,
+				788867941A5021AF00A35EE5 /* Vk.png in Resources */,
 				2109B0341A4B14A5006D0DD2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +352,7 @@
 				21162BFB1A4C15360022C332 /* VKRequest.m in Sources */,
 				2109B0531A4B160D006D0DD2 /* NSString+CutParameter.m in Sources */,
 				2109B02F1A4B14A5006D0DD2 /* ViewController.m in Sources */,
+				7886458F1A544E0B00DE2A0F /* Reachability.m in Sources */,
 				2109B02C1A4B14A5006D0DD2 /* AppDelegate.m in Sources */,
 				7896EC7D1A4F561400093D35 /* VKFullscreenPhotoViewController.m in Sources */,
 				2109B0541A4B160D006D0DD2 /* UserInfo.m in Sources */,
@@ -325,6 +360,7 @@
 				211093F71A4EE24E00DCD7FA /* IconDownloader.m in Sources */,
 				2109B0291A4B14A5006D0DD2 /* main.m in Sources */,
 				21162C0A1A4C67940022C332 /* VKParser.m in Sources */,
+				788645951A54504A00DE2A0F /* ReachabilityManager.m in Sources */,
 				211093FB1A4EF25400DCD7FA /* VKAlbumViewCell.m in Sources */,
 				211093BF1A4ED75300DCD7FA /* VKPhotoListViewController.m in Sources */,
 				211093BA1A4EB67600DCD7FA /* VKAlbumListViewController.m in Sources */,

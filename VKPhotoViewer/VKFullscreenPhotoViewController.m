@@ -29,17 +29,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    if (fromInterfaceOrientation == UIInterfaceOrientationPortrait || fromInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        self.fullscreenImage.frame = CGRectMake(0, 52, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width - 52);
-    }
-    if (fromInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || fromInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        self.fullscreenImage.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64);
-    }
-}
-
 - (void)loadImage:(VKPhoto*)photo{
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.photo.photo_1280]];
+    NSString *maxPhotoUrl;
+    if (self.photo.photo_2560) {
+        maxPhotoUrl = self.photo.photo_2560;
+    } else if (self.photo.photo_1280) {
+        maxPhotoUrl = self.photo.photo_1280;
+    } else if (self.photo.photo_807) {
+        maxPhotoUrl = self.photo.photo_807;
+    } else if (self.photo.photo_604) {
+        maxPhotoUrl = self.photo.photo_604;
+    } else if (self.photo.photo_130) {
+        maxPhotoUrl = self.photo.photo_130;
+    } else {
+        maxPhotoUrl = self.photo.photo_75;
+    }
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:maxPhotoUrl]];
     [NSURLConnection connectionWithRequest:request delegate:self];
 }
 

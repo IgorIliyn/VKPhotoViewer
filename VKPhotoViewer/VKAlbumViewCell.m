@@ -38,7 +38,6 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     CGRect contentRect = self.contentView.bounds;
-    //contentRect.size.width = 320.f;
     self.contentView.frame = contentRect;
     self.backgroundView = [[UIView alloc]initWithFrame:contentRect];
     self.backgroundView.backgroundColor = [UIColor whiteColor];
@@ -51,9 +50,7 @@
     self.loader.frame = frame;
     
     frame = CGRectMake(boundsX + 55, 15, contentRect.size.width - (boundsX + 50), 20);
-    self.title.frame = frame;
-    
-   
+    self.title.frame = frame;   
 }
 
 

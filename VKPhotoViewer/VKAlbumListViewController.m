@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
+    //self.navigationItem.hidesBackButton = YES;
     self.title = @"Albums";
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     [self.tableView registerClass:[VKAlbumViewCell class] forCellReuseIdentifier:@"albumCell"];
@@ -32,7 +32,22 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     [self vkGetAlbums];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+}
+
+- (void)logout{
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]) {
+        
+        NSString* domainName = [cookie domain];
+        NSRange domainRange = [domainName rangeOfString:@"vk.com"];
+        
+        if(domainRange.length > 0) {
+            [storage deleteCookie:cookie];
+        }
+    }
+    [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +65,13 @@
     [vkRequest setComplationBlock:^(NSMutableArray *array) {
         if (array) {
             self.albumList = array;
+            if (self.albumList.count == 0) {
+                VKAlbum *thumb = [[VKAlbum alloc]init];
+                thumb.title = @"У вас пока нет альбомов";
+                thumb.albumIcon = [UIImage imageNamed:@"Vk.png"];
+                [self.albumList addObject:thumb];
+                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAlbum)];
+            }
             [self.tableView reloadData];
         }else{
             //handle empty array
@@ -58,6 +80,9 @@
     [vkRequest loadData];
 }
 
+- (void)addAlbum{
+    
+}
 
 #pragma mark - Table view data source
 
@@ -128,7 +153,13 @@
 #pragma mark UITableView delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"photoList" sender:self];
+    VKAlbum *album = [self.albumList objectAtIndex:indexPath.row];
+    if ([album.title isEqualToString:@"У вас пока нет альбомов"]) {
+        
+    }else{
+        [self performSegueWithIdentifier:@"photoList" sender:self];
+    }
+    
 }
 
 
@@ -138,8 +169,12 @@
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  // Get the new view controller using [segue destinationViewController].
  // Pass the selected object to the new view controller.
-     VKAlbum *album = [self.albumList objectAtIndex:[self.tableView indexPathForSelectedRow].row];
-     [[segue destinationViewController] setAlbum:album];
+     if ([[segue identifier] isEqualToString:@"photoList"]) {
+         VKAlbum *album = [self.albumList objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+         [[segue destinationViewController] setAlbum:album];
+     }
+     
+     
  }
 
 #pragma mark - Table cell image support

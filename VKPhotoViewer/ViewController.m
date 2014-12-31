@@ -21,6 +21,23 @@
     [super viewDidLoad];
     CGRect frame = [[UIScreen mainScreen]bounds];
     self.vkWebView.frame = frame;
+    [self authorizeIfNeed];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    NSString *url = [NSString stringWithFormat:@"%@?scope=%@&revoke=%@&response_type=%@&redirect_uri=%@&client_id=%@&display=%@",vk_authorize_url,
+                     vk_scope,
+                     vk_revoke,
+                     vk_response_type,
+                     vk_redirect_uri,
+                     vk_client_id,
+                     vk_display];
+    
+    [self.vkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+}
+
+- (void)authorizeIfNeed{
     if ([[UserInfo sharedInstance] vkAccessToken] && [[UserInfo sharedInstance] isValidToken]) {
         [self performSegueWithIdentifier:@"albumList" sender:self];
     } else {
@@ -34,8 +51,6 @@
         
         [self.vkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     }
-    
-    
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
@@ -65,6 +80,10 @@
         [[NSUserDefaults standardUserDefaults] setObject:token forKey:VKAccessTokenKey];
         [[NSUserDefaults standardUserDefaults] setObject:tokenDate forKey:VKAccessTokenDateKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[UserInfo sharedInstance] setVkOwnerId:ownerId];
+        [[UserInfo sharedInstance] setVkAccessToken:token];
+        [[UserInfo sharedInstance] setVkAccessTokenDateGetting:tokenDate];
         
         [self performSegueWithIdentifier:@"albumList" sender:self];
         
